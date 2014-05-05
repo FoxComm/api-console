@@ -28,7 +28,8 @@ module.exports = function (grunt) {
   // configurable paths
   var yeomanConfig = {
     app:  'app',
-    dist: 'dist'
+    dist: 'dist', 
+    raml: '../api-spec'
   };
 
   grunt.initConfig({
@@ -61,7 +62,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.raml %>/{,*/}*.raml'
         ]
       }
     },
@@ -97,7 +99,8 @@ module.exports = function (grunt) {
               stripFontPathPrefix(connect),
               mountFolder(connect, 'app/vendor/bower_components/font-awesome/fonts'),
               mountFolder(connect, 'app/vendor/open-sans'),
-              mountFolder(connect, yeomanConfig.app)
+              mountFolder(connect, yeomanConfig.app),
+              mountFolder(connect, yeomanConfig.raml)
             ];
           }
         }
